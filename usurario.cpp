@@ -2,16 +2,54 @@
 #include <stdio.h>
 #include <string.h>
 
+//TRABAJO INTEGRADOR-ALBORNOZ-BEJAR-BRANDAN-CABRERA
+
 typedef char cadena [100];
 
-struct registro
+
+struct fecha
 {
-	cadena apeynomb;
-	int dni; //del dueño
-	int localidad;
-	int edad; //calculada con la fecha de nacimiento registrada
-	float peso; 
+    int dia;
+    int mes;
+    int anio;
 };
+
+struct veterinario
+{
+    char apynom[60];
+    int matricula;
+    char contrasenia[10]; 
+    int dni;
+    char telefono[25];
+};
+
+struct usuario
+{
+    char usu[60];
+    char contrasenia[60];
+    char apynom[60];
+    int cp;
+};
+
+struct turnos
+{
+    int mat;
+    fecha fn;
+    int dni;
+    char detalle[380];
+};
+
+struct mascota
+{
+    char apynom[60];
+    char domicilio[60];
+    int dni;
+    char localidad[60];
+    fecha fec;
+    float peso;
+    char tel[25];
+};
+
 
 int Menu()
 {
@@ -55,13 +93,11 @@ int Menu()
 	
 }
 
-
 int determinacion (int con);
-
 main ()
 {
 	
-  registro reg;
+  mascota reg;
   int con, contrasena, det, determinar;
   int opc = 0;
 
@@ -83,40 +119,6 @@ main ()
   	
   	
   }while (opc != 0);
-  //printf ("Ingrese la contraseña uwu (Conjunto numerico de 3 cifras)");
-  //scanf ("%d", &con);
-  printf ("Ingrese el nombre");
-  _flushall();
-  gets (reg.apeynomb);
-   det = determinacion (con);
-   con = contrasena; 
-	printf ("%d", con);
+  
 }
-
-int determinacion (int con)
-{
-
-  int  B=0;
-  do
-  {
-  	printf ("Ingrese la contraseña uwu (Conjunto numerico de 3 cifras)");
-    scanf ("%d", &con);
-   if (con == 323)
-    {  	
-  	 printf ("La clave es correcta");
-	 con = 323;
-	 B = 1; 
-    }
-    else
-     {	
-	  printf ("\nLa clave es incorrecta, Por favor volver a ingresar");	
-	  con = 0;
-	  int B = 0; 
-     }
-  }while (B==0);
-
-   return con;
-
-}
-
 
